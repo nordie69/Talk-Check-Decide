@@ -1,6 +1,6 @@
 # Talk, Check, Decide: Summary
 
-28 September 2026 · Stefan Mohr
+30 September 2026 · Stefan Mohr
 
 ## About this repository
 
