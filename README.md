@@ -4,7 +4,7 @@
 
 ## About this repository
 
-This repository holds the skills and templates of the workflow described in the paper "Talk, Check, Decide: A Skill-Based Workflow for Writing and Verifying Geological Excursion Reports with an AI Assistant" by Stefan Mohr, version v5 of 28 September 2026, under the MIT licence. This page summarises the paper; every number is taken from it unchanged. The project records of the two reports and the scripts of the figures are not published.
+This repository holds the skills and templates of the workflow described in the paper "Talk, Check, Decide: A Skill-Based Workflow for Writing and Verifying Geological Excursion Reports with an AI Assistant" by Stefan Mohr, version v5 of 28 September 2026, under the MIT licence. This page summarises the paper; every number up to the section Limits is taken from it unchanged. The section The skills describes the current state of the repository. The project records of the two reports and the scripts of the figures are not published.
 
 ## The problem and the questions
 
@@ -64,7 +64,62 @@ The evidence comes from two reports by one author and one assistant, and the cou
 
 ## The skills
 
-The family has 20 skills in two groups, `geo-` skills for geological reports and localities and `science-` skills that work on any document, plus two templates. Skill names are the identifiers of the skill files, most of them German; the paper's Appendix A gives the task of each in English. Three carry a version number: `science-arbeitsplan-erstellen` (5.0.0), `template-skill-projekt` (1.5.0) and `template-dokumentprojekt` (1.6.0).
+The repository holds 22 skills and 2 templates, 24 packages in all, in three families. Each family has its own folder with a README that describes every skill, its input and output, and how the skills work together; the same overview is included as a PDF. Each skill is provided as a `.skill` package for installation in Claude. Skill names are the identifiers of the skill files, most of them German. All packages are at version 2.0.0, except science-arbeitsplan-erstellen, which is at version 2.1.0.
+
+The paper describes the family at an earlier state, with 20 skills and version numbers on three of them.
+
+| Family | Folder | Packages | Scope |
+|---|---|---|---|
+| GEO | [geo-skills](geo-skills/README.md) | 10 | geological reports and localities |
+| SCIENCE | [science-skills](science-skills/README.md) | 12 | work on any scientific document |
+| TEMPLATE | [template-skills](template-skills/README.md) | 2 | file structure of document and skill projects |
+
+### GEO skills
+
+Ten skills for geological, mineralogical and palaeontological fieldwork, from researching localities to a finished, checked excursion report. Details in [geo-skills/README.md](geo-skills/README.md).
+
+| Skill | Task |
+|---|---|
+| geo-exkursionsbericht-erstellen | Write an excursion or field report in one of 15 genres |
+| geo-exkursionsbericht-typenanalyse | Check a finished report against all genres that could fit |
+| geo-excursion-report | English excursion report with route map, geological overlay and stratigraphic chart |
+| geo-fundstellen-evidenzregeln | Shared rules for locality work |
+| geo-fundstellen-evidenz-pruefung | Check a locality document against these rules |
+| geo-fundstellen-bibliographie | Bibliography by locality, with DOI check |
+| geo-fundstueckregister | Register of collected specimens, with labels |
+| geo-fundort-datenbank-recherche | Link localities in Mindat, Mineralienatlas and PBDB via web search |
+| geo-mindat-datenbank-recherche-mit-api | The same, with Mindat via its API |
+| geo-frage-belegbasiert-klaeren | Answer a geological question with source, evidence level and scope |
+
+### SCIENCE skills
+
+Twelve skills for scientific writing and document work, independent of the subject area: planning, research, capturing observations, review, decisions, changes, graphical abstracts and handover. Details in [science-skills/README.md](science-skills/README.md).
+
+| Skill | Task |
+|---|---|
+| science-arbeitsplan-erstellen | Write a verifiable work plan before execution |
+| science-entscheidungspunkt-klaeren | Turn a single decision point into an applicable rule |
+| science-deep-research-prompt-generator | Write a deep research brief for a literature search |
+| science-recherchebericht-mit-quellen | Run a web search and report with numbered references |
+| science-beobachtung-erfassen-befragung | Capture own observations with separate evidence grades |
+| science-faktenbeleg-pruefung | Check statements against their sources |
+| science-quellenapparat-pruefung | Check the reference list, DOIs and citations |
+| science-interne-konsistenz-pruefung | Check a document against itself |
+| science-dokumentkritik-drei-sichten | Assess a finished document from three perspectives of use |
+| science-aenderungsfortpflanzung | Carry a correction through every place it occurs |
+| science-graphical-abstract | Design, draw and check a graphical abstract |
+| science-uebergabeprotokoll-erstellen | Write the handover protocol for a new chat |
+
+### TEMPLATE skills
+
+Two templates that set up and maintain the working files around a project. Details in [template-skills/README.md](template-skills/README.md).
+
+| Skill | Task |
+|---|---|
+| template-dokumentprojekt | File set and rules for projects whose result is a document |
+| template-skill-projekt | File set and rules for developing a Claude skill |
+
+### Getting started
 
 A lighter start, as the paper suggests, keeps three parts and drops most of the project files:
 
